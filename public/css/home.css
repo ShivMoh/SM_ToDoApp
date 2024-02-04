@@ -1,0 +1,217 @@
+div.task-container {
+    width: 375px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px;
+    margin-top: 20px;
+
+    border-radius: 10px;
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+div.task-container.completed  {
+    border-top:     solid #008505 1px;
+    border-right:   solid #008505 3px; 
+    border-bottom:  solid #008505 5px;
+    border-left:    solid #008505 1px;
+}
+
+div.task-container.pending  {
+    border-top:     solid #FFB422 1px;
+    border-right:   solid #FFB422 3px; 
+    border-bottom:  solid #FFB422 5px;
+    border-left:    solid #FFB422 1px;
+}
+
+div.task-container.overdue  {
+    background-color: #FF9E9E;
+    border-top:     solid #FF0000 1px;
+    border-right:   solid #FF0000 3px; 
+    border-bottom:  solid #FF0000 5px;
+    border-left:    solid #FF0000 1px;
+}
+
+div.task-container:hover {
+    transform: scale(1.02);
+}
+
+div.task-container:hover {
+    cursor: pointer;
+}
+
+div.task-container-top {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+div.task-due-date {
+    width: 100%;
+    position: relative;
+    left: 110px;
+    font-family: 'Iter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex
+}
+
+div.task-due-date .date {
+    width: 162px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    top: -30px;
+}
+
+div.task-due-date .date.completed {
+    background-color: #008505;
+}
+
+div.task-due-date .date.pending{
+    background-color: #FFB422;
+}
+
+div.task-due-date .date.overdue {
+    background-color: #FF0000;
+}
+
+
+div.task-container-bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+div.task-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+div.task-description-container {
+    margin-top: 20px;
+}
+
+div.task-description {
+    font-family: 'Iter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    height: 50px;
+    overflow: hidden;
+}
+
+div.task-container-decorator-left-container {
+    width: 100%;
+    position: relative;
+    top: -30px;
+    left: -10px;
+}
+
+div.task-container-decorator-left {
+    width: 45px;
+    height: 45px;
+    border-radius: 0 50px 0 10px;
+}
+
+div.task-container-decorator-left.pending {
+    background-color: #008505;
+}
+
+div.task-container-decorator-left.pending {
+    background-color: #FFB422;
+}
+
+div.task-container-decorator-left.overdue{
+    background-color: #FF0000;
+}
+
+div.task-container-decorator-right {
+    position: relative;
+    width: 45px;
+    height: 45px;
+    top: -10px;
+    right: -10px;
+    border-radius: 0 10px 0 50px;
+}
+
+div.task-container-decorator-right.pending {
+    background-color: #008505;
+}
+
+div.task-container-decorator-right.pending {
+    background-color: #FFB422;
+}
+
+div.task-container-decorator-right.overdue {
+    background-color: #FF0000;
+}
+
+div.test-container-blank {
+    width: 100%;
+}
+
+.task-button-container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    margin-top: 30px;
+}
+
+.task-trash-button {
+    width: 28px;
+    height: 28px;
+    background-color: white;
+    border: solid red 8px;
+    border-radius: 100%;
+    z-index: 2;
+    transition: transform 0.2s linear;
+}
+
+
+.task-mark-as-complete-button {
+    width: 28px;
+    height: 28px;
+    background-color: white;
+    border: solid #00FF0A 2px;
+    border-radius: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s linear;
+    z-index: 2;
+ 
+}
+
+.task-trash-button:hover, .task-mark-as-complete-button:hover, .task-mark-as-complete-button:hover  {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+
+.task-mark-as-complete-inner-button {
+    width: 12px;
+    height: 12px;
+    background-color: #00FF0A ;
+    border-radius: 100%;
+}
+
+.item-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  
+    justify-items: center;
+    align-items: center;
+    row-gap: 100px;
+}
+
+
+

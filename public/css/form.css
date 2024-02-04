@@ -1,0 +1,42 @@
+.decoration {
+    transform: scale(1.5);
+    margin-bottom: 50px;
+}
+
+
+
+.form-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 50px;
+}
+
+label {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-container input, .input-container textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    width: 500px;
+    height: 40px;
+    border: transparent;
+    outline: none;
+    border-bottom: solid grey 2px;
+    background-color: #eeeeee;
+}
+
+textarea {
+    height: auto;
+}

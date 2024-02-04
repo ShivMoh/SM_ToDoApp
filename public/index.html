@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/bar.css">
+    <link rel="stylesheet" href="./css/spinner.css">
+    <link rel="stylesheet" href="./css/form.css">
+</head>
+<body>
+
+    <div class="task-bar">
+        <div class="task-input-container">
+            <input 
+                type="text" 
+                name="search-bar" 
+                id="search-bar"
+                placeholder="Search Task By Name"
+                >
+            <label for="search-bar">
+                search icon
+                <!-- <img src="" alt="" srcset=""> -->
+            </label>
+        </div>
+        <div class="filter-options">
+            <div class="filter-option">
+                <label for="filter-by">Filter By</label>
+                <select name="filter-by" id="filter-by">
+                    <option value="completed">Completed</option>
+                    <option value="pending">Pending</option>
+                    <option value="overdue">Overdue</option>
+                </select>
+            </div>
+            <div class="filter-option">
+                <label for="sort-by">Sort By</label>
+                <select name="sort-by" id="sort-by">
+                    <option value="due-date-ascending">Due Date (Ascending)</option>
+                    <option value="due-date-descending">Due Date (Descending)</option>
+                </select>
+            </div>
+            <div class="filter-option">
+                <a href="add.html">Add Item</a>
+
+            </div>
+        </div>        
+    </div>
+
+    <div class="item-container">
+        <div id="items-list">
+        
+        </div>
+
+    </div>
+
+    
+    <div hx-get="http://localhost:4000/items"
+        hx-trigger="load"
+        hx-target="#items-list"
+        hx-swap="outerHTML"
+        hx-indicator="#spinner"
+    >
+    </div>
+
+    <div class="spinner-box">
+        <div 
+            id="spinner"
+            class="htmx-indicator"
+        >
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/htmx.org@1.9.6" integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+
+        document.body.addEventListener('htmx:afterRequest', function (event) {
+            if (event.detail.pathInfo.requestPath.includes('find')) {
+                var id = event.detail.requestConfig.unfilteredParameters.id;
+                location.href = `http://127.0.0.1:5500/public/form.html?id=${id}`
+            }
+            if (event.detail.requestConfig.verb == "post") {
+                location.reload();
+            }
+        });
+    </script>
+</body>
+</html>

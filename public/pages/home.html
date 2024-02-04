@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="../css/home.css">
+
+<div class="task-container">
+    <div class="task-container-top">
+        <div class="task-due-date">
+            <div class="date">
+                Due: yyyy-mm-dd
+            </div>
+        </div>
+        <div class="task-container-decorator-right"></div>
+    </div>
+    <div class="task-title">Finish Something Important</div>
+    <div class="task-description-container">
+        <div class="task-description">
+            This is a description of the task to be completed. This is a description of the task to be completed. The task is about something important I'm sure
+        </div>
+    </div>
+    <div class="task-container-bottom">
+        <div class="test-container-blank"></div>
+        <div class="task-button-container">
+            <button 
+                type="button" title="trash-button" 
+                class="task-trash-button"
+                hx-post="http://localhost:3000/items/delete" 
+                hx-trigger="click" 
+                hx-swap="none" 
+                hx-confirm="Are you sure you want to delete?" 
+                hx-headers='{"Content-type": "application/json"}' 
+                hx-vals='{"id": 1, "name": "soemthing"}'
+                >
+            </button>
+            <button 
+                type="button" 
+                title="mark-as-complete-button" 
+                class="task-mark-as-complete-button">
+                <div class="task-mark-as-complete-inner-button">
+                    
+                </div>
+            </button>
+        </div>
+    </div>
+    <div class="task-container-decorator-left-container">
+        <div class="task-container-decorator-left">
+
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/htmx.org@1.9.6" integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

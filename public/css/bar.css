@@ -1,0 +1,42 @@
+.task-bar {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 80px;
+    background-color: #EEFBFF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+}
+
+.task-input-container {
+    width: 65%;
+}
+
+.task-input-container input {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    width: 500px;
+    height: 40px;
+    border: transparent;
+    outline: none;
+    border-bottom: solid grey 2px;
+    background-color: transparent;
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: row;
+    column-gap: 60px;
+}
+
+.filter-options .filter-option select {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: solid grey 1px;
+}
+

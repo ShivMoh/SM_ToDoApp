@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Outfit">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="./css/spinner.css">
+    <link rel="stylesheet" href="./css/form.css">
+</head>
+<body>
+
+    <div class="item-container">
+        <div id="some-list">
+        </div>
+    </div>
+
+    <div
+        hx-post="http://localhost:4000/items/getItem" 
+        hx-trigger="load" 
+        hx-target="#some-list"
+        hx-swap="outerHTML"
+        hx-headers='{"Content-type": "application/json"}' 
+        hx-vals='{"id": "1"}'
+    >
+    </div>
+
+    <script src="https://unpkg.com/htmx.org@1.9.6" integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        document.body.addEventListener('htmx:beforeRequest', function (event) {
+            if (event.detail.pathInfo.requestPath.includes('update')) {
+                var title = document.getElementById("title");
+                var description = document.getElementById("description");
+                var dueDate = document.getElementById("due-date");
+                
+                event.detail.requestConfig.unfilteredParameters.data.title = title.value;
+                event.detail.requestConfig.unfilteredParameters.data.description = description.value;
+                event.detail.requestConfig.unfilteredParameters.data.dueDate = dueDate.value;
+            }
+
+            
+            if (event.detail.pathInfo.requestPath.includes('getItem')) {
+                const queryParames = new URLSearchParams(window.location.search);
+                var id = queryParames.get('id') ?? 1;
+                event.detail.requestConfig.unfilteredParameters.id = id;
+            }
+        })
+        
+        document.body.addEventListener('htmx:afterRequest', function (event) {
+            if (event.detail.requestConfig.verb == "post" && !event.detail.pathInfo.requestPath.includes('getItem')) {
+                location.reload();
+            }
+        });
+
+
+    </script>
+</body>
+</html>
+
+
+    <!-- <script>
+
+    </script> -->
